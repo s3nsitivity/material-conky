@@ -90,7 +90,7 @@ ${offset 80}${voffset -2}$color${font Santana:size=8}${color 2c2c2c}${memgraph 3
 ${offset 80}${voffset 5}${color FFFFFF}${font Santana:size=10}CPU Usage (${cpu}%) :
 ${offset 80}${voffset -2}$color${font Santana:size=8}${color 2c2c2c}${cpugraph 30,200 2c2c2c FF3D00}
 
-# NETWORK USAGE
+# NETWORK USAGE #SET CORRECT INTERFACE
 ${offset 80}${voffset 10}$color${font Santana:size=9:style=Bold}IP Address : ${addr wlp3s0}
 ${offset 80}${voffset 2}$color${font Santana:size=8}TCP Connections : ${tcp_portmon 1 65535 count}
 ${offset 80}${voffset 2}${font Santana:size=8}${color 4A148C}Down : ${offset 9}$color${downspeed wlp3s0}/s ${offset 8}${color 3D5AFE}Up : ${offset 9}$color${upspeed wlp3s0} /s
