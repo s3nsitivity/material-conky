@@ -1,0 +1,101 @@
+###############################################################################
+#
+#      simple conky with Material Design colors by:        ZelenaP94
+#
+###############################################################################
+
+
+
+## Conky settings
+update_interval 5.0
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+override_utf8_locale yes
+
+double_buffer yes
+no_buffers yes
+
+text_buffer_size 2048
+
+#imlib_cache_size 0
+
+default_color FFFFFF
+
+
+## Window specifications
+
+# Allow conky to handle transparency with a compositor
+own_window yes
+window_own_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_argb_visual yes	
+own_window_argb_value 0
+
+
+## This Resolution is set according to the screen resolution of 1366 768
+
+
+minimum_size 1366 768
+
+alignment top_left
+#alignment top_right
+gap_x 0
+gap_y 0
+
+
+
+## Graphics settings
+border_inner_margin 0
+border_outer_margin 0
+
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+
+
+
+## Text settings
+use_xft yes
+xftfont caviar dreams:size=8
+xftalpha 1.0
+uppercase no
+
+temperature_unit celsius  
+
+
+# stuff after 'TEXT' will be formatted on screen
+TEXT
+
+# Clock and Date
+${offset 80}${voffset -5}${color FFFFFF}${font GE Inspira:pixelsize=90}${time %H:%M}${font}
+
+
+# KERNEL, INFO
+${offset 80}${voffset -10}${color FFFFFF}${font Santana:size=12:style=Bold}Linux ${kernel} kernel
+${offset 80}${voffset 10}$color${font Santana:size=10:style=Bold}${exec whoami}@${nodename}
+${offset 80}${voffset 10}${color 6200EA}${font Santana:size=8}Uptime : ${offset 9}${color FFFFFF}${uptime}
+
+# DISK USAGE
+${offset 80}${voffset 10}${color 1976D2}${font Santana:size=10:style=Bold}root (SSD)$color${font Santana:size=10} : ${offset 10}${fs_used /}/${fs_size /}
+${voffset 5}${offset 80}${color 1976D2}${fs_bar 22,200 /}
+${offset 80}${voffset 10}${color D50000}${font Santana:size=10:style=Bold}data (HDD)$color${font Santana:size=10} : ${offset 10}${fs_used /home/patrik/DATA} / ${fs_size /home/patrik/DATA}$font
+${voffset 5}${offset 80}${color D50000}${fs_bar 22,200 /home/patrik/DATA}
+
+# RESOURCE USAGE
+${offset 80}${voffset 5}${color FFFFFF}${font Santana:size=10}RAM Usage (${memperc}%) :
+${offset 80}${voffset -2}$color${font Santana:size=8}${color 2c2c2c}${memgraph 30,200 2c2c2c FF9100}
+${offset 80}${voffset 5}${color FFFFFF}${font Santana:size=10}CPU Usage (${cpu}%) :
+${offset 80}${voffset -2}$color${font Santana:size=8}${color 2c2c2c}${cpugraph 30,200 2c2c2c FF3D00}
+
+# NETWORK USAGE
+${offset 80}${voffset 10}$color${font Santana:size=9:style=Bold}IP Address : ${addr wlp3s0}
+${offset 80}${voffset 2}$color${font Santana:size=8}TCP Connections : ${tcp_portmon 1 65535 count}
+${offset 80}${voffset 2}${font Santana:size=8}${color 4A148C}Down : ${offset 9}$color${downspeed wlp3s0}/s ${offset 8}${color 3D5AFE}Up : ${offset 9}$color${upspeed wlp3s0} /s
+${offset 80}${voffset 2}${color FFFFFF}${font Santana:size=8}Interface wlp3s0 usage :
+${offset 80}${voffset -2}$color${font Santana:size=8}${color 2c2c2c}${downspeedgraph wlp3s0 30,200 b7b7b7 4A148C}
+${offset 80}${voffset -5}${color 2c2c2c}${upspeedgraph wlp3s0 30,200 b7b7b7 3D5AFE}
+
+#
